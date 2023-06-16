@@ -1,0 +1,156 @@
+// RESETEO
+* {
+    padding: 0px;
+    margin: 0px;
+    background-color: #28bce5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+$breakpoint-sm: 767px;
+
+// FUENTES
+@font-face {
+    font-family: SourceCodePro;
+    src: url(../fuentes/SourceCodePro-Black.otf);
+}
+
+@mixin movil() {
+    @media screen and (min-width: $breakpoint-sm) {
+        @content;
+    }
+
+}
+
+@mixin movil2() {
+    @media screen and (max-width: $breakpoint-sm) {
+        @content;
+    }
+
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.menu {
+    position: relative;
+    margin: 60px 10%;
+
+    @include movil{
+        width: -webkit-fill-available;
+        position: relative;
+        margin: 0px 10%;
+        order: 4;
+
+    }
+
+    
+
+    &__imagen {
+        width: 40;
+        height: 40px;
+        cursor: pointer;
+
+        @include movil {
+            display: none;
+        }
+    }
+
+    /* SE QUE AQUI , O CREO QUE, DEVERIA DECIRY NO ESTA COSA MEDIA REBUSCADA .menu:hover > .menu__desplegable__item, NO LOGRO HACER QUE FUNCIONE ASI */
+    @include movil2 {
+        &:hover>nav ul li {
+            display: block;
+        }
+
+    }
+
+    &__desplegable {
+        display: inline-block;
+        width: -webkit-fill-available;
+
+        &__item {
+            display: none;
+            list-style: none;
+            position: relative;
+            padding: 10px 20px;
+            borDER: white 3PX SOLID;
+            border-radius: 10px;
+            margin: 1px -20px;
+            color: white;
+            text-align: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+    }
+
+    &__horizontal {
+        display: none;
+
+
+        @include movil {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
+
+        &__item {
+            list-style: none;
+   
+    padding: 10px 20px;
+    borDER: white 3PX SOLID;
+    border-radius: 10px;
+    margin: 1px -20px;
+   
+    text-align: center;
+    cursor: pointer;
+    
+    width: 20%;
+     
+        }
+       
+    }
+
+}
+
+.logo{
+    width: 120px;
+}
+
+.iconos{
+
+    
+    @include movil{
+       order:3;
+
+    }
+
+  }
+
+  .buscador{
+    text-align: -webkit-center;
+  }
+
+  .container {
+  display: flex;
+  justify-content: space-evenly}
+
+  .carousel-inner img {
+    height: 350px;
+
+  }
+
+.menu_pie{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+}
+
+.img_construccion{
+    display: flex;
+    justify-content: center;
+} 

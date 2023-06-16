@@ -1,0 +1,119 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  background-color: #28bce5;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: SourceCodePro;
+  src: url(../fuentes/SourceCodePro-Black.otf);
+}
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.menu {
+  position: relative;
+  margin: 60px 10%;
+  /* SE QUE AQUI , O CREO QUE, DEVERIA DECIRY NO ESTA COSA MEDIA REBUSCADA .menu:hover > .menu__desplegable__item, NO LOGRO HACER QUE FUNCIONE ASI */
+}
+@media screen and (min-width: 767px) {
+  .menu {
+    width: -webkit-fill-available;
+    position: relative;
+    margin: 0px 10%;
+    order: 4;
+  }
+}
+.menu__imagen {
+  width: 40;
+  height: 40px;
+  cursor: pointer;
+}
+@media screen and (min-width: 767px) {
+  .menu__imagen {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .menu:hover > nav ul li {
+    display: block;
+  }
+}
+.menu__desplegable {
+  display: inline-block;
+  width: -webkit-fill-available;
+}
+.menu__desplegable__item {
+  display: none;
+  list-style: none;
+  position: relative;
+  padding: 10px 20px;
+  borDER: white 3PX SOLID;
+  border-radius: 10px;
+  margin: 1px -20px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1;
+}
+.menu__horizontal {
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  .menu__horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.menu__horizontal__item {
+  list-style: none;
+  padding: 10px 20px;
+  borDER: white 3PX SOLID;
+  border-radius: 10px;
+  margin: 1px -20px;
+  text-align: center;
+  cursor: pointer;
+  width: 20%;
+}
+
+.logo {
+  width: 120px;
+}
+
+@media screen and (min-width: 767px) {
+  .iconos {
+    order: 3;
+  }
+}
+
+.buscador {
+  text-align: -webkit-center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.carousel-inner img {
+  height: 350px;
+}
+
+.menu_pie {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.img_construccion {
+  display: flex;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=styles.css.map */
