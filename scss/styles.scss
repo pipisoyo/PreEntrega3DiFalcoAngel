@@ -28,6 +28,12 @@ $breakpoint-sm: 767px;
 
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    background: white ;
+}
+
 header {
     display: flex;
     flex-wrap: wrap;

@@ -9,6 +9,12 @@
   font-family: SourceCodePro;
   src: url(../fuentes/SourceCodePro-Black.otf);
 }
+body {
+  display: flex;
+  flex-direction: column;
+  background: white;
+}
+
 header {
   display: flex;
   flex-wrap: wrap;
