@@ -1,13 +1,15 @@
 // RESETEO
+
 * {
     padding: 0px;
-    margin: 0px;
-    background-color: #28bce5;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 $breakpoint-sm: 767px;
+$fondo: #28bce5;
+$bordescolor: white;
 
+// CAMBIO EL COLOR PRIMARIO DE BS
+$primary: black;
 // FUENTES
 @font-face {
     font-family: SourceCodePro;
@@ -27,11 +29,12 @@ $breakpoint-sm: 767px;
     }
 
 }
-
-body{
+// CORRECCION - FOOTER Y HEADER QUEDAN FIJOS - RESPONSIVE
+body {
     display: flex;
     flex-direction: column;
-    background: white ;
+    min-height: 100vh;
+    background-color: $fondo !important
 }
 
 header {
@@ -43,9 +46,9 @@ header {
 
 .menu {
     position: relative;
-    margin: 60px 10%;
+    margin: 30px 5%;
 
-    @include movil{
+    @include movil {
         width: -webkit-fill-available;
         position: relative;
         margin: 0px 10%;
@@ -53,7 +56,7 @@ header {
 
     }
 
-    
+
 
     &__imagen {
         width: 40;
@@ -65,7 +68,7 @@ header {
         }
     }
 
-    /* SE QUE AQUI , O CREO QUE, DEVERIA DECIRY NO ESTA COSA MEDIA REBUSCADA .menu:hover > .menu__desplegable__item, NO LOGRO HACER QUE FUNCIONE ASI */
+
     @include movil2 {
         &:hover>nav ul li {
             display: block;
@@ -74,21 +77,27 @@ header {
     }
 
     &__desplegable {
-        display: inline-block;
-        width: -webkit-fill-available;
+        position: absolute;
 
         &__item {
             display: none;
             list-style: none;
             position: relative;
             padding: 10px 20px;
-            borDER: white 3PX SOLID;
+            borDER: $bordescolor 3PX SOLID;
             border-radius: 10px;
             margin: 1px -20px;
             color: white;
             text-align: center;
             cursor: pointer;
             z-index: 1;
+            background: $fondo;
+            font-size: xx-large;
+            & a{
+                text-decoration: none;
+            }
+
+          
         }
 
     }
@@ -106,57 +115,101 @@ header {
 
         &__item {
             list-style: none;
-   
-    padding: 10px 20px;
-    borDER: white 3PX SOLID;
-    border-radius: 10px;
-    margin: 1px -20px;
-   
-    text-align: center;
-    cursor: pointer;
-    
-    width: 20%;
-     
+
+            padding: 10px 20px;
+            borDER: $bordescolor 3PX SOLID;
+            border-radius: 10px;
+            margin: 1px -20px;
+
+            text-align: center;
+            cursor: pointer;
+
+            width: 20%;
+            & a{
+                text-decoration: none;
+            }
+
         }
-       
+
     }
 
 }
 
-.logo{
+.logo {
     width: 120px;
 }
 
-.iconos{
+.iconos {
 
-    
-    @include movil{
-       order:3;
+
+    @include movil {
+        order: 3;
 
     }
 
-  }
-
-  .buscador{
-    text-align: -webkit-center;
-  }
-
-  .container {
-  display: flex;
-  justify-content: space-evenly}
-
-  .carousel-inner img {
-    height: 350px;
-
-  }
-
-.menu_pie{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
 }
 
-.img_construccion{
+.buscador {
+    text-align: -webkit-center;
+}
+
+.container {
     display: flex;
-    justify-content: center;
-} 
+    justify-content: space-evenly
+}
+
+.carousel-inner img {
+    height: 350px;
+
+}
+
+footer {
+    margin-top: auto;
+}
+
+.menu_pie {
+    display: flex;
+    padding: 20px 40px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.img_construccion {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+// IMPORTO BS PARA PERSONALIZAR
+@import "../bootstrap/scss/bootstrap.scss";
+
+.btn-outline-success {
+    @include button-outline-variant(black, $fondo, lighten($fondo, 100%), $fondo);
+    --bs-btn-border-color: $bordescolor;
+    --bs-border-width: 3px;
+}
+
+.productos {
+    display: grid;
+    justify-items: center;
+
+    &__contenedor {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include movil2 {
+            grid-template-columns: repeat(1, 1fr);
+
+        }
+
+        &__imagen {
+            width: 300px;
+            height: 160px;
+            border: $bordescolor solid 3px;
+            padding: 2px;
+
+        }
+    }
+}
